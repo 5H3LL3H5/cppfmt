@@ -1,2 +1,2 @@
 # CPPFMT
-auto format C and C++ source file.
+Auto format C and C++ source file.
