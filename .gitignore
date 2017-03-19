@@ -1,2 +1,5 @@
-# Test file
+# Test File
 test*
+
+# Python Module File
+*.pyc
