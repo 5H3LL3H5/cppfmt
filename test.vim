@@ -29,5 +29,7 @@ while True:
     lextype.append(tok.type)
     lexvalue.append(tok.value)
     lexpos.append(tok.lexpos)
+print lextype
+print lexvalue
 EOF
 endfunction

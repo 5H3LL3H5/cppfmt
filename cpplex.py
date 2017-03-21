@@ -60,14 +60,19 @@ tokens = reserved + (
 
     # Ellipsis (...)
     'ELLIPSIS',
+
+    # Space
+    'SPACE',
 )
 
 # Completely ignored characters
-t_ignore = ' \t\x0c'
+#t_ignore = '\x0c'
+t_ignore = '\x0c'
+
+# Space
+t_SPACE = r'\s'
 
 # Newlines
-
-
 def t_NEWLINE(t):
     r'(\n+)|((\r\n)+)'
     t.lexer.lineno += t.value.count("\n")
@@ -96,7 +101,6 @@ t_EQ = r'=='
 t_NE = r'!='
 
 # Assignment operators
-
 t_EQUALS = r'='
 t_TIMESEQUAL = r'\*='
 t_DIVEQUAL = r'/='
@@ -158,7 +162,7 @@ t_CCONST = r'(L)?\'([^\\\n]|(\\.))*?\''
 
 # Comments
 def t_COMMENT(t):
-    r'(/\*(.|\n)*?\*/)|(//.*\n)'
+    r'(/\*(.|\n)*?\*/)|(//.*\Z)'
     t.lexer.lineno += t.value.count('\n')
     t.type = reserved_map.get(t.value, "COMMENT")
     return t
