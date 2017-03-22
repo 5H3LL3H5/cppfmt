@@ -16,6 +16,7 @@ import ply.lex as lex
 import cpplex
 
 from lexicon import Lexicon
+import fsms
 
 lexer = lex.lex(module=cpplex)
 lexer.input(vim.current.line)
