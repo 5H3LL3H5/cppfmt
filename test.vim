@@ -15,21 +15,15 @@ sys.path.append(vim.eval("s:path"))
 import ply.lex as lex
 import cpplex
 
+from lexicon import Lexicon
+
 lexer = lex.lex(module=cpplex)
 lexer.input(vim.current.line)
 
-lextype = []
-lexvalue = []
-lexpos = []
+units = Lexicon(lexer)
 
-while True:
-    tok = lexer.token()
-    if not tok:
-        break
-    lextype.append(tok.type)
-    lexvalue.append(tok.value)
-    lexpos.append(tok.lexpos)
-print lextype
-print lexvalue
+for unit in units:
+    print unit.type
+
 EOF
 endfunction
