@@ -31,7 +31,17 @@ class Lexicon():
             self.__counter += 1
             return unit
         else:
+            self.__counter = 0
             raise StopIteration
 
     def __len__(self):
         return len(self.__units)
+
+    def __getitem__(self, key):
+        return self.__units[key]
+
+    def __delitem__(self, key):
+        del self.__units[key]
+
+    def __setitem__(self, key, val):
+        self.__units[key] = val
