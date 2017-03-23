@@ -1,2 +1,2 @@
 # CPPFMT
-Auto format C and C++ source file.
+A Vim Plugin that can auto format C and C++ source file.
