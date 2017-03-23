@@ -179,7 +179,7 @@ def t_COMMENT(t):
     t.type = reserved_map.get(t.value, "COMMENT")
     return t
 
-# Preprocessor directive (ignored)
+# Preprocessor directive
 def t_preprocessor(t):
     #r'\#(.)*?\n'
     r'\#(.)*?'
