@@ -13,6 +13,7 @@ class Format():
     __lblock = ( 'LPAREN', 'LBARACKET', 'LBRACE', )
     __rblock = ( 'RPAREN', 'RBARACKET', 'RBRACE', )
     __block = __lblock + __rblock
+    __separator = ( 'COMMA', 'SEMI' )
 
     # block expand style
     BLKINNER = 0
@@ -70,3 +71,10 @@ class Format():
                 self.BLKALL:self.__expand_blkall }
         func = switcher.get(style)
         func()
+
+    def expand_separator(self):
+        for index in range(len(self.units)):
+            if self.units[index].type in self.__separator:
+                if index != (len(self.units)-1) and self.units[index+1].type != 'SPACE':
+                    self.units[index].value += ' '
+        self.__flushlexicon()
