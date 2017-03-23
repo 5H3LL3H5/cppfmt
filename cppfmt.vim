@@ -3,7 +3,7 @@
 " git repository: https://github.com/StarAndRabbit/cppfmt.git
 " Version: 0.1 Alpha
 " Language: Python + Vim Script
-" Author: Dai BingZhi <daibingzhifoxmail.com>
+" Author: Dai BingZhi <daibingzhi@foxmail.com>
 " ===========================================================
 
 " check Vim Python runtime
