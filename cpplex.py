@@ -63,6 +63,12 @@ tokens = reserved + (
 
     # Space
     'SPACE',
+
+    # Preprocessor
+    'PREPROCESSOR',
+
+    # Quote
+    'SQUOTE', 'DQUOTE'
 )
 
 # Completely ignored characters
@@ -160,6 +166,12 @@ t_SCONST = r'\"([^\\\n]|(\\.))*?\"'
 # Character constant 'c' or L'c'
 t_CCONST = r'(L)?\'([^\\\n]|(\\.))*?\''
 
+# Single Quote
+t_SQUOTE = r'\''
+
+# Double Quote
+t_DQUOTE = r'\"'
+
 # Comments
 def t_COMMENT(t):
     r'(/\*(.|\n)*?\*/)|(//.*\Z)'
@@ -169,8 +181,11 @@ def t_COMMENT(t):
 
 # Preprocessor directive (ignored)
 def t_preprocessor(t):
-    r'\#(.)*?\n'
-    t.lexer.lineno += 1
+    #r'\#(.)*?\n'
+    r'\#(.)*?'
+    #t.lexer.lineno += 1
+    t.type = reserved_map.get(t.value, "PREPROCESSOR")
+    return t
 
 
 def t_error(t):

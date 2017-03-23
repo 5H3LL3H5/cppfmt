@@ -25,15 +25,6 @@ class Lexicon():
     def __iter__(self):
         return self
 
-    def next(self):
-        if self.__counter < len(self.__units):
-            unit = self.__units[self.__counter]
-            self.__counter += 1
-            return unit
-        else:
-            self.__counter = 0
-            raise StopIteration
-
     def __len__(self):
         return len(self.__units)
 
@@ -45,3 +36,18 @@ class Lexicon():
 
     def __setitem__(self, key, val):
         self.__units[key] = val
+
+    def next(self):
+        if self.__counter < len(self.__units):
+            unit = self.__units[self.__counter]
+            self.__counter += 1
+            return unit
+        else:
+            self.__counter = 0
+            raise StopIteration
+
+    def getstring(self):
+        newstring = ''
+        for unit in self.__units:
+            newstring += unit.value
+        return newstring

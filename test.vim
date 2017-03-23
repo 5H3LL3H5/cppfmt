@@ -12,19 +12,11 @@ python << EOF
 import sys, vim
 sys.path.append(vim.eval("s:path"))
 
-import ply.lex as lex
-import cpplex
+from fmt import Format
 
-from lexicon import Lexicon
-import fsms
-
-lexer = lex.lex(module=cpplex)
-lexer.input(vim.current.line)
-
-units = Lexicon(lexer)
-
-for unit in units:
-    print unit.type
+formater = Format(vim.current.line)
+formater.expand_block()
+print formater.units.getstring()
 
 EOF
 endfunction
