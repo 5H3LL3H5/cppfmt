@@ -1,9 +1,10 @@
 " ===========================================================
 " cppfmt - auto format C/C++ Source for VIM
-" git repository: https://github.com/StarAndRabbit/cppfmt.git
+" Git Repository: https://github.com/StarAndRabbit/cppfmt.git
 " Version: 0.1 Alpha
-" Language: Python + Vim Script
+" Language: C/C++
 " Author: Dai BingZhi <daibingzhi@foxmail.com>
+" Last Change: 2017.03.30
 " ===========================================================
 
 " check Vim Python runtime
