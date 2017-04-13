@@ -3,6 +3,9 @@ A Vim Plugin that can auto format C and C++ source file.
 
 ## Update
 
+### 2017.04.13
+- complete plugins path in directory, now it can auto load this plugin
+
 ### 2017.03.24
 - now you can use it when you programing in Vim :) (actually it has many bugs to fixed)
 
