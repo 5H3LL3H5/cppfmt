@@ -19,6 +19,7 @@ if exists('g:autoformat_loaded')
 else
     let g:autoformat_loaded = 1
     let s:path = expand("<sfile>:h")
+    let s:modpath = join(remove(split(s:path, '/\zs'), len(split(s:path, '/\zs'))-1))
 endif
 
 " open/close auto format
@@ -51,7 +52,7 @@ function! FormatCurrentLine()
 
 python << EOF
 import sys, vim
-sys.path.append(vim.eval("s:path"))
+sys.path.append(vim.eval("s:modpath"))
 from cfmter.fmt import Format
 
 formater = Format(vim.current.line)
