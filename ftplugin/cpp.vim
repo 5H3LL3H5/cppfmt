@@ -19,7 +19,9 @@ if exists('g:autoformat_loaded')
 else
     let g:autoformat_loaded = 1
     let s:path = expand("<sfile>:h")
-    let s:modpath = join(remove(split(s:path, '/\zs'), len(split(s:path, '/\zs'))-1))
+    let s:pathlist = split(s:path, '/\zs')
+    call remove(s:pathlist, len(s:pathlist)-1)
+    let s:modpath = join(s:pathlist, '')
 endif
 
 " open/close auto format
