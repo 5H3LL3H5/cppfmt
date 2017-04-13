@@ -16,10 +16,10 @@ endif
 " make sure the module loaded once
 if exists('g:autoformat_loaded')
     finish
+else
+    let g:autoformat_loaded = 1
+    let s:path = expand("<sfile>:h")
 endif
-
-" a flag to judge has the module loaded
-let g:autoformat_loaded = 1
 
 " open/close auto format
 let s:autoformat = 0
@@ -48,7 +48,6 @@ endfunction
 
 " format the current line
 function! FormatCurrentLine()
-    let s:path = expand("<sfile>:h")
 
 python << EOF
 import sys, vim
