@@ -4,7 +4,7 @@
 " Version: 0.1 Alpha
 " Language: C/C++
 " Author: Dai BingZhi <daibingzhi@foxmail.com>
-" Last Change: 2017.03.30
+" Last Change: 2017.04.24
 " ===========================================================
 
 " check Vim Python runtime
@@ -24,25 +24,27 @@ else
     let s:modpath = join(s:pathlist, '')
 endif
 
+command! -nargs=0 AutoFormatToggle call s:ToggleAutoFormat()
+
 " open/close auto format
 let s:autoformat = 0
-function! ToggleAutoFormat()
+function! s:ToggleAutoFormat()
     if s:autoformat == 0
         let s:autoformat = 1
-        inoremap <enter> <c-\><c-o>:call StartAutoFormat()<enter><enter>
+        inoremap <enter> <c-\><c-o>:call s:StartAutoFormat()<enter><enter>
     else
         let s:autoformat = 0
-        iunmap <c-\><c-o>:call StartAutoFormat()<enter><enter>
+        iunmap <c-\><c-o>:call s:StartAutoFormat()<enter><enter>
 
     endif
 endfunction
 
 
 " if cursor in the end of line, start format
-function! StartAutoFormat()
+function! s:StartAutoFormat()
     if col('$') == col('.')
         let l:pos = []
-        call FormatCurrentLine()
+        call s:FormatCurrentLine()
         call add(l:pos, line('.'))
         call add(l:pos, col('$'))
         call cursor(l:pos)      " set cursor at the end of current line
@@ -50,7 +52,7 @@ function! StartAutoFormat()
 endfunction
 
 " format the current line
-function! FormatCurrentLine()
+function! s:FormatCurrentLine()
 
 python << EOF
 import sys, vim
