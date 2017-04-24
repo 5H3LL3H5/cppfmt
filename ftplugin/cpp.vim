@@ -24,24 +24,24 @@ else
     let s:modpath = join(s:pathlist, '')
 endif
 
-command! -nargs=0 AutoFormatToggle call s:ToggleAutoFormat()
+command! -nargs=0 AutoFormatToggle call ToggleAutoFormat()
 
 " open/close auto format
 let s:autoformat = 0
-function! s:ToggleAutoFormat()
+function! ToggleAutoFormat()
     if s:autoformat == 0
         let s:autoformat = 1
-        inoremap <enter> <c-\><c-o>:call s:StartAutoFormat()<enter><enter>
+        inoremap <enter> <c-\><c-o>:call StartAutoFormat()<enter><enter>
     else
         let s:autoformat = 0
-        iunmap <c-\><c-o>:call s:StartAutoFormat()<enter><enter>
+        iunmap <c-\><c-o>:call StartAutoFormat()<enter><enter>
 
     endif
 endfunction
 
 
 " if cursor in the end of line, start format
-function! s:StartAutoFormat()
+function! StartAutoFormat()
     if col('$') == col('.')
         let l:pos = []
         call s:FormatCurrentLine()
