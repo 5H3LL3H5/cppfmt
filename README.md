@@ -3,6 +3,9 @@ A Vim Plugin that can auto format C and C++ source file.
 
 ## Update
 
+### 2017.04.24
+- add command AutoFormatToggle to open or close autoformat
+
 ### 2017.04.13
 - complete plugins path in directory, now it can auto load this plugin
 
@@ -26,12 +29,11 @@ pip install ply
 ```
 
 ## Usage
-1. Source cppfmt.vim in Vim editor.
-2. call ToggleAutoFormat function
+1. Use command AutoFormatToggle
 ```VimScript
-:call ToggleAutoFormat()
+:AutoFormatToggle
 ```
-3. When you push "Enter" in the end of a line, you will found that it will auto format this line :)
+2. When you push "Enter" in the end of a line, you will found that it will auto format this line :)
 (if yout want to turn off auto format, you can call ToggleAutoFormat again)
 
 ## BUGs
