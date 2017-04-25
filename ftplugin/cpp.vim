@@ -31,7 +31,7 @@ let s:autoformat = 0
 function! ToggleAutoFormat()
     if s:autoformat == 0
         let s:autoformat = 1
-        inoremap <enter> <c-\><c-o>:call StartAutoFormat()<enter><enter>
+        inoremap <buffer> <enter> <c-\><c-o>:call StartAutoFormat()<enter><enter>
     else
         let s:autoformat = 0
         iunmap <c-\><c-o>:call StartAutoFormat()<enter><enter>
